@@ -15,7 +15,6 @@ A production‑ready backend implementing the **Expense Split Tracker** assignme
 - Transaction history with filters (by type, user, date range)
 - Postman collection provided in `postman_collection.json`
 
-> This implementation follows the instructions and sample scenarios from the assignment PDF. See the email brief for submission/README/Loom requirements.
 
 
 ## Tech Stack
