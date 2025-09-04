@@ -85,11 +85,6 @@ Run a small test suite covering split/settlement/simplification:
 ```bash
 pytest -q
 ```
-
-## Loom
-Add your Loom link in this README (replace below):
-- Loom: <ADD_YOUR_LINK_HERE>
-
 ## Notes
 - The app enforces validations for currency, split totals, membership, and settlement bounds.
 - You can extend `CurrencyRate` to fetch live FX externally; here it's manual for deterministic tests.
