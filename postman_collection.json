@@ -1,0 +1,429 @@
+{
+  "info": {
+    "name": "Expense Split Tracker API",
+    "_postman_id": "8b8c1a3c-8e1f-4acd-9a9c-ecb3f1b9a999",
+    "description": "Simple dashboard demo via Postman",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "users"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"User1\", \"email\": \"u1@example.com\"}"
+        }
+      }
+    },
+    {
+      "name": "Create User 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "users"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"User2\", \"email\": \"u2@example.com\"}"
+        }
+      }
+    },
+    {
+      "name": "Create User 3",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "users"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"User3\", \"email\": \"u3@example.com\"}"
+        }
+      }
+    },
+    {
+      "name": "Create Group",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/groups",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "groups"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Trip to Paris\", \"base_currency\": \"USD\"}"
+        }
+      }
+    },
+    {
+      "name": "Add Member: User1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/groups/1/members",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "groups",
+            "1",
+            "members"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"user_id\": 1}"
+        }
+      }
+    },
+    {
+      "name": "Add Member: User2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/groups/1/members",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "groups",
+            "1",
+            "members"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"user_id\": 2}"
+        }
+      }
+    },
+    {
+      "name": "Add Member: User3",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/groups/1/members",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "groups",
+            "1",
+            "members"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"user_id\": 3}"
+        }
+      }
+    },
+    {
+      "name": "Upsert FX USD->USD (1.0)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/rates",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "rates"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"base\": \"USD\", \"target\": \"USD\", \"rate\": 1.0}"
+        }
+      }
+    },
+    {
+      "name": "Add Expense Equal (90 USD; users 1,2,3; payer 1)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/groups/1/expenses/equal",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "groups",
+            "1",
+            "expenses",
+            "equal"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"payer_id\": 1, \"amount\": 90.0, \"currency\": \"USD\", \"user_ids\": [1, 2, 3], \"description\": \"Hotel\"}"
+        }
+      }
+    },
+    {
+      "name": "Add Expense Exact (100 USD; 1->70, 2->30; payer 1)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/groups/1/expenses/exact",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "groups",
+            "1",
+            "expenses",
+            "exact"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"payer_id\": 1, \"amount\": 100.0, \"currency\": \"USD\", \"amounts\": {\"1\": 70.0, \"2\": 30.0}, \"description\": \"Dinner\"}"
+        }
+      }
+    },
+    {
+      "name": "Add Expense Percentage (200 USD; 60/40; payer 1)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/groups/1/expenses/percentage",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "groups",
+            "1",
+            "expenses",
+            "percentage"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"payer_id\": 1, \"amount\": 200.0, \"currency\": \"USD\", \"percentages\": {\"1\": 60.0, \"2\": 40.0}, \"description\": \"Shopping\"}"
+        }
+      }
+    },
+    {
+      "name": "Get Balances",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/groups/1/balances",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "groups",
+            "1",
+            "balances"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Settle (2 -> 1) amount 50",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/groups/1/settlements",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "groups",
+            "1",
+            "settlements"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"debtor_id\": 2, \"creditor_id\": 1, \"amount_base\": 50.0}"
+        }
+      }
+    },
+    {
+      "name": "Simplify Preview",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:8000/groups/1/simplify/preview",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "groups",
+            "1",
+            "simplify",
+            "preview"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Simplify Apply",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:8000/groups/1/simplify/apply",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "groups",
+            "1",
+            "simplify",
+            "apply"
+          ]
+        }
+      }
+    },
+    {
+      "name": "History (all)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/groups/1/history",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "groups",
+            "1",
+            "history"
+          ]
+        }
+      }
+    }
+  ]
+}
